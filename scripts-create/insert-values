@@ -1,0 +1,249 @@
+--
+-- SCRIPT DE INSERÇÃO DE DADOS:
+--
+
+-- INSERÇÃO DE DADOS NA TABELA "ENDEREÇO DO CLIENTE":
+
+INSERT
+INTO Endereco_Cliente (CEP_Cliente, Logradouro_Cliente, Num_Cliente, Bairro_Cliente, Cidade_Cliente, UF_Cliente) 
+VALUES ('05586-015', 'Rua dos Milagres', 1520, 'Vila Formosa', 'São Paulo', 'SP');
+
+INSERT 
+INTO Endereco_Cliente (CEP_Cliente, Logradouro_Cliente, Num_Cliente, Bairro_Cliente, Cidade_Cliente, UF_Cliente) 
+VALUES ('05027-020', 'Avenida Brasil', 333, 'Jardim América', 'São Paulo', 'SP');
+
+INSERT 
+INTO Endereco_Cliente (CEP_Cliente, Logradouro_Cliente, Num_Cliente, Bairro_Cliente, Cidade_Cliente, UF_Cliente) 
+VALUES ('03072-010', 'Rua Antônia Gusmão', 27, 'Laranjeiras', 'Guarujá', 'SP');
+
+INSERT 
+INTO Endereco_Cliente (CEP_Cliente, Logradouro_Cliente, Num_Cliente, Bairro_Cliente, Cidade_Cliente, UF_Cliente) 
+VALUES ('04032-001', 'Alameda das Gerais', 78, 'Florestal', 'Cananéia', 'SP');
+
+INSERT 
+INTO Endereco_Cliente (CEP_Cliente, Logradouro_Cliente, Num_Cliente, Bairro_Cliente, Cidade_Cliente, UF_Cliente) 
+VALUES ('06033-007', 'Rua da Independência', 2306, 'Vila dos Amores', 'Águas de Chapecó', 'SC');
+
+-- INSERÇÃO DE DADOS NA TABELA "CLIENTE DO EVENTO":
+
+INSERT 
+INTO ClienteDoEvento (Cod_Cliente, Nome_Cliente, CPF, Data_Nasc, Idade, Email, Celular, Telefone, CEP_Cliente) 
+VALUES (0001, 'Eduardo Feitosa de Magalhães', '37269845574', '1996/08/21', 25, 'edu_feitosa@gmail.com', '(11)968624553', '(11)55656733', '05586-015');
+
+INSERT 
+INTO ClienteDoEvento (Cod_Cliente, Nome_Cliente, CPF, Data_Nasc, Idade, Email, Celular, Telefone, CEP_Cliente) 
+VALUES (0002, 'Carla Maria dos Santos', '37269736692', '2001/05/10', 21, 'carla_maria92@gmail.com', '(11)966735912', '(11)36411278', '05027-020');
+
+INSERT 
+INTO ClienteDoEvento (Cod_Cliente, Nome_Cliente, CPF, Data_Nasc, Idade, Email, Celular, Telefone, CEP_Cliente) 
+VALUES (0003, 'Alessandra Dias', '34467749813', '1984/04/02', 38, 'dias_alessandra@outlook.com.br', '(13)966731215', '(13)42988101', '03072-010');
+
+INSERT 
+INTO ClienteDoEvento (Cod_Cliente, Nome_Cliente, CPF, Data_Nasc, Idade, Email, Celular, Telefone, CEP_Cliente) 
+VALUES (0004, 'José Martins do Nascimento', '36645688710', '1972/10/23', 49, 'jose_martins@uol.com.br', '(13)972631266', '(13)42775571', '04032-001');
+
+INSERT 
+INTO ClienteDoEvento (Cod_Cliente, Nome_Cliente, CPF, Data_Nasc, Idade, Email, Celular, Telefone, CEP_Cliente) 
+VALUES (0005, 'Cristiane de Assis Pereira', '37364901511', '1999/12/05', 22, 'cris_pereira.99@gmail.com', '(49)993731267', '(49)35211366', '06033-007');
+
+INSERT 
+INTO ClienteDoEvento (Cod_Cliente, Nome_Cliente, CPF, Data_Nasc, Idade, Email, Celular, Telefone, CEP_Cliente) 
+VALUES (0006, 'Laura de Assis Pereira', '37364988457', '1995/07/14', 26, 'pereira_laura@gmail.com', '(49)976361412', '(49)35211366', '06033-007');
+
+-- INSERÇÃO DE DADOS NA TABELA "VENDEDOR DO EVENTO":
+
+INSERT
+INTO VendedorDoEvento (Cod_Vend, Nome_Vend, CNPJ, Email_Vend, Telefone_Vend)
+VALUES (0030, 'Manga Produções', '81.255.530/0001-82', 'manga.eventos@outlook.com.br', '(11)39546860');
+
+INSERT
+INTO VendedorDoEvento (Cod_Vend, Nome_Vend, CNPJ, Email_Vend, Telefone_Vend)
+VALUES (0031, 'Caipora Festivais', '34.104.555/0001-03', 'festivais.caipora@gmail.com', '(11)54798320');
+
+INSERT
+INTO VendedorDoEvento (Cod_Vend, Nome_Vend, CNPJ, Email_Vend, Telefone_Vend)
+VALUES (0032, 'Corcovado Shows LTDA', '61.772.631/0001-13', 'corcovado_shows25@gmail.com', '(21)37826941');
+
+-- INSERÇÃO DE DADOS NA TABELA "LOCALIZAÇÃO DO EVENTO":
+
+INSERT
+INTO LocalizacaoDoEvento (Nome_Estabelecimento, CEP_Evento, Logradouro_Evento, Num_Evento, Bairro_Evento, Cidade_Evento, UF_Evento, Cod_Mapa_Lugares)
+VALUES ('Allianz Parque', '05001-200', 'Avenida Francisco Matarazzo', 1705, 'Água Branca', 'São Paulo', 'SP', 0126);
+
+INSERT
+INTO LocalizacaoDoEvento (Nome_Estabelecimento, CEP_Evento, Logradouro_Evento, Num_Evento, Bairro_Evento, Cidade_Evento, UF_Evento, Cod_Mapa_Lugares)
+VALUES ('Espaço das Américas', '01156-000', 'Rua Tagipuru', 795, 'Barra Funda', 'São Paulo', 'SP', 0140);
+
+INSERT
+INTO LocalizacaoDoEvento (Nome_Estabelecimento, CEP_Evento, Logradouro_Evento, Num_Evento, Bairro_Evento, Cidade_Evento, UF_Evento, Cod_Mapa_Lugares)
+VALUES ('Pedreira Paulo Leminski', '82130-010', 'Rua João Gava', 970, 'Abranches', 'Curitiba', 'PR', 0204);
+
+INSERT
+INTO LocalizacaoDoEvento (Nome_Estabelecimento, CEP_Evento, Logradouro_Evento, Num_Evento, Bairro_Evento, Cidade_Evento, UF_Evento, Cod_Mapa_Lugares)
+VALUES ('Circo Voador', '20230-060', 'Rua dos Arcos', null, 'Lapa', 'Rio de Janeiro', 'RJ', 0317);
+
+-- INSERÇÃO DE DADOS NA TABELA "EVENTO":
+
+INSERT
+INTO Evento (Cod_Evento, Nome_Evento, Descricao_Evento, Cod_Vend, Nome_Estabelecimento)
+VALUES (3769, 'Guns N Roses South American Tour 2022', 'Será a 10ª vez que a banda virá ao Brasil, a última foi no São Paulo Trip, em 2017, com ingressos esgotados. A nova turnê começará por Recife (04/09), seguirá para Goiânia (11/09), Belo Horizonte (13/09), Ribeirão Preto (16/09), Florianópolis (18/09), Curitiba (21/09), São Paulo (24/09) e finalizará em Porto Alegre (26/09). De lá, a banda prosseguirá para Buenos Aires (30/09), Montevideo (02/10), Santiago (05/10), Lima (08/10) e Bogotá (11/10). Além dos shows da Mercury Concerts, a banda está confirmada para se apresentar no Rock in Rio.', 0030, 'Allianz Parque');
+
+INSERT
+INTO Evento (Cod_Evento, Nome_Evento, Descricao_Evento, Cod_Vend, Nome_Estabelecimento)
+VALUES (3780, 'The Kooks', 'Classificação etária 16 anos desacompanhados. De 05 anos a 15 anos somente acompanhados dos pais ou responsáveis legais. Não será permitida a entrada de crianças menores de 05 anos no evento.', 0030, 'Espaço das Américas');
+
+INSERT
+INTO Evento (Cod_Evento, Nome_Evento, Descricao_Evento, Cod_Vend, Nome_Estabelecimento)
+VALUES (3783, 'Gorillaz', 'A Pedreira nunca mais será a mesma….. No dia 18 de maio, a banda virtual Gorillaz se apresenta em Curitiba. Uma apresentação ao vivo emocionante com os visuais incríveis de Jamie Hewlett e Damon Albarn acompanhado por toda a banda ao vivo, com 2D, Noodle, Murdoc Niccals e Russel Hobbs, além de uma seleção de artistas em destaque. O show faz parte do calendário oficial do festival MITA, que terá sua primeira edição no país em 2022.', 0031, 'Pedreira Paulo Leminski');
+
+INSERT
+INTO Evento (Cod_Evento, Nome_Evento, Descricao_Evento, Cod_Vend, Nome_Estabelecimento)
+VALUES (3794, 'Marina Lima no Circo Voador', 'Aquela dobradinha clássica que você estava esperando: Marina Lima e Circo Voador. Sábado, 11 de junho, faz um showzaço cheio de hits navegando pelos seus mais de 40 anos de estrada. Antes e depois do show, DJ Bruno Caveira, que vem de Goiânia pra fazer sua estreia na Lona.', 0032, 'Circo Voador');
+
+-- INSERÇÃO DE DADOS NA TABELA "EVENTO / LOCALIZACÃO DO EVENTO":
+
+INSERT
+INTO Evento_LocalizacaoDoEvento (Cod_Evento, Nome_Evento, Nome_Estabelecimento, CEP_Evento, Data_Evento, Hora_Evento)
+VALUES (3769, 'Guns N Roses South American Tour 2022', 'Allianz Parque', '05001-200', '2022/09/24', '20h');
+
+INSERT
+INTO Evento_LocalizacaoDoEvento (Cod_Evento, Nome_Evento, Nome_Estabelecimento, CEP_Evento, Data_Evento, Hora_Evento)
+VALUES (3780, 'The Kooks', 'Espaço das Américas', '01156-000', '2022/05/20', '21h30');
+
+INSERT
+INTO Evento_LocalizacaoDoEvento (Cod_Evento, Nome_Evento, Nome_Estabelecimento, CEP_Evento, Data_Evento, Hora_Evento)
+VALUES (3783, 'Gorillaz', 'Pedreira Paulo Leminski', '82130-010', '2022/05/18', '21h');
+
+INSERT
+INTO Evento_LocalizacaoDoEvento (Cod_Evento, Nome_Evento, Nome_Estabelecimento, CEP_Evento, Data_Evento, Hora_Evento)
+VALUES (3794, 'Marina Lima no Circo Voador', 'Circo Voador', '20230-060', '2022/06/11', '22h');
+
+-- INSERÇÃO DE DADOS NA TABELA "MAPA LUGARES":
+
+INSERT
+INTO Mapa_Lugares (Cod_Mapa_Lugares, Nome_Estabelecimento)
+VALUES (0126, 'Allianz Parque');
+
+INSERT
+INTO Mapa_Lugares (Cod_Mapa_Lugares, Nome_Estabelecimento)
+VALUES (0140, 'Espaço das Américas');
+
+INSERT
+INTO Mapa_Lugares (Cod_Mapa_Lugares, Nome_Estabelecimento)
+VALUES (0204, 'Pedreira Paulo Leminski');
+
+INSERT
+INTO Mapa_Lugares (Cod_Mapa_Lugares, Nome_Estabelecimento)
+VALUES (0317, 'Circo Voador');
+
+-- INSERÇÃO DE DADOS NA TABELA "SETOR":
+
+INSERT
+INTO Setor (Cod_Setor, Nome_Setor, Qtd_Ingressos, Cod_Mapa_Lugares)
+VALUES (001, 'Pista Premium', 1000, 0126);
+
+INSERT
+INTO Setor (Cod_Setor, Nome_Setor, Qtd_Ingressos, Cod_Mapa_Lugares)
+VALUES (002, 'Pista', 4000, 0126);
+
+INSERT
+INTO Setor (Cod_Setor, Nome_Setor, Qtd_Ingressos, Cod_Mapa_Lugares)
+VALUES (003, 'Cadeira Inferior', 10000, 0126);
+
+INSERT
+INTO Setor (Cod_Setor, Nome_Setor, Qtd_Ingressos, Cod_Mapa_Lugares)
+VALUES (004, 'Cadeira Superior', 15000, 0126);
+
+INSERT
+INTO Setor (Cod_Setor, Nome_Setor, Qtd_Ingressos, Cod_Mapa_Lugares)
+VALUES (005, 'Cadeirante Pista Premium', 500, 0126);
+
+INSERT
+INTO Setor (Cod_Setor, Nome_Setor, Qtd_Ingressos, Cod_Mapa_Lugares)
+VALUES (006, 'Cadeirante Pista', 1000, 0126);
+
+INSERT
+INTO Setor (Cod_Setor, Nome_Setor, Qtd_Ingressos, Cod_Mapa_Lugares)
+VALUES (007, 'Cadeirante Cadeira Inferior', 8500, 0126);
+
+INSERT
+INTO Setor (Cod_Setor, Nome_Setor, Qtd_Ingressos, Cod_Mapa_Lugares)
+VALUES (020, 'Pista Premium', 700, 0140);
+
+INSERT
+INTO Setor (Cod_Setor, Nome_Setor, Qtd_Ingressos, Cod_Mapa_Lugares)
+VALUES (021, 'Pista', 1400, 0140);
+
+INSERT
+INTO Setor (Cod_Setor, Nome_Setor, Qtd_Ingressos, Cod_Mapa_Lugares)
+VALUES (022, 'Mezanino', 350, 0140);
+
+INSERT
+INTO Setor (Cod_Setor, Nome_Setor, Qtd_Ingressos, Cod_Mapa_Lugares)
+VALUES (023, 'Cadeirante Pista Premium', 100, 0140);
+
+INSERT
+INTO Setor (Cod_Setor, Nome_Setor, Qtd_Ingressos, Cod_Mapa_Lugares)
+VALUES (024, 'Cadeirante Pista', 200, 0140);
+
+INSERT
+INTO Setor (Cod_Setor, Nome_Setor, Qtd_Ingressos, Cod_Mapa_Lugares)
+VALUES (060, 'Pista Premium', 6000, 0204);
+
+INSERT
+INTO Setor (Cod_Setor, Nome_Setor, Qtd_Ingressos, Cod_Mapa_Lugares)
+VALUES (061, 'Pista', 18000, 0204);
+
+INSERT
+INTO Setor (Cod_Setor, Nome_Setor, Qtd_Ingressos, Cod_Mapa_Lugares)
+VALUES (062, 'Cadeirante Pista', 1000, 0204);
+
+INSERT
+INTO Setor (Cod_Setor, Nome_Setor, Qtd_Ingressos, Cod_Mapa_Lugares)
+VALUES (080, 'Pista', 2200, 0317);
+
+-- INSERÇÃO DE DADOS NA TABELA "TIPO DO INGRESSO":
+
+INSERT
+INTO TipoDoIngresso (Cod_Tipo_Ingresso, Categoria, Qtd_Tipo_Ingresso, Valor_Ingresso, Valor_Taxa_Servico, Cod_Setor)
+VALUES (200, 'Inteira', 300, 950.00, 190.00, 001);
+
+INSERT
+INTO TipoDoIngresso (Cod_Tipo_Ingresso, Categoria, Qtd_Tipo_Ingresso, Valor_Ingresso, Valor_Taxa_Servico, Cod_Setor)
+VALUES (201, 'Meia Entrada', 300, 475.00, 95.00, 001);
+
+INSERT
+INTO TipoDoIngresso (Cod_Tipo_Ingresso, Categoria, Qtd_Tipo_Ingresso, Valor_Ingresso, Valor_Taxa_Servico, Cod_Setor)
+VALUES (202, 'Meia Idoso', 200, 475.00, 95.00, 001);
+
+INSERT
+INTO TipoDoIngresso (Cod_Tipo_Ingresso, Categoria, Qtd_Tipo_Ingresso, Valor_Ingresso, Valor_Taxa_Servico, Cod_Setor)
+VALUES (203, 'Meia PCD', 200, 475.00, 95.00, 001);
+
+INSERT
+INTO TipoDoIngresso (Cod_Tipo_Ingresso, Categoria, Qtd_Tipo_Ingresso, Valor_Ingresso, Valor_Taxa_Servico, Cod_Setor)
+VALUES (204, 'Inteira', 300, 600.00, 100.00, 002);
+
+INSERT
+INTO TipoDoIngresso (Cod_Tipo_Ingresso, Categoria, Qtd_Tipo_Ingresso, Valor_Ingresso, Valor_Taxa_Servico, Cod_Setor)
+VALUES (205, 'Meia Entrada', 300, 225.00, 40.00, 002);
+
+INSERT
+INTO TipoDoIngresso (Cod_Tipo_Ingresso, Categoria, Qtd_Tipo_Ingresso, Valor_Ingresso, Valor_Taxa_Servico, Cod_Setor)
+VALUES (206, 'Meia Idoso', 200, 225.00, 40.00, 002);
+
+INSERT
+INTO TipoDoIngresso (Cod_Tipo_Ingresso, Categoria, Qtd_Tipo_Ingresso, Valor_Ingresso, Valor_Taxa_Servico, Cod_Setor)
+VALUES (207, 'Meia PCD', 200, 225.00, 40.00, 002);
+
+INSERT
+INTO TipoDoIngresso (Cod_Tipo_Ingresso, Categoria, Qtd_Tipo_Ingresso, Valor_Ingresso, Valor_Taxa_Servico, Cod_Setor)
+VALUES (220, 'Inteira', 100, 180.00, 100.00, 022);
+
+INSERT
+INTO TipoDoIngresso (Cod_Tipo_Ingresso, Categoria, Qtd_Tipo_Ingresso, Valor_Ingresso, Valor_Taxa_Servico, Cod_Setor)
+VALUES (221, 'Meia Entrada', 200, 90.00, 50.00, 022);
+
+INSERT
+INTO TipoDoIngresso (Cod_Tipo_Ingresso, Categoria, Qtd_Tipo_Ingresso, Valor_Ingresso, Valor_Taxa_Servico, Cod_Setor)
+VALUES (222, 'Meia PCD', 80, 90.00, 50.00, 023);
