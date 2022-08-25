@@ -1,0 +1,33 @@
+-- CONSULTAS:
+
+SELECT * FROM Endereco_Cliente;
+SELECT * FROM ClienteDoEvento;
+SELECT * FROM VendedorDoEvento;
+SELECT * FROM LocalizacaoDoEvento;
+SELECT * FROM Evento;
+SELECT * FROM Evento_LocalizacaoDoEvento;
+SELECT * FROM Mapa_Lugares;
+SELECT * FROM Setor;
+SELECT * FROM TipoDoIngresso;
+
+SELECT Nome_Evento, Data_Evento, Hora_Evento FROM Evento_LocalizacaoDoEvento
+WHERE Nome_Evento = 'The Kooks';
+
+SELECT S.Cod_Mapa_Lugares, SUM(Qtd_Ingressos) AS Ingressos_Disponiveis
+FROM Setor S
+GROUP BY S.Cod_Mapa_Lugares
+ORDER BY S.Cod_Mapa_Lugares ASC;
+
+SELECT UF_Evento, COUNT(*) AS Total_Local_Evento
+FROM LocalizacaoDoEvento
+GROUP BY UF_Evento
+ORDER BY UF_Evento ASC;
+
+SELECT Nome_Cliente FROM ClienteDoEvento
+WHERE CEP_Cliente = '06033-007';
+
+SELECT Email
+FROM ClienteDoEvento
+WHERE ((Idade = 25) OR (Idade = 21))
+AND (CEP_Cliente IN ('05586-015','05027-020'))
+ORDER BY Idade DESC;
