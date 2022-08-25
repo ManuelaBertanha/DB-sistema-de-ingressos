@@ -1,4 +1,6 @@
+--
 -- CONSULTAS:
+--
 
 SELECT * FROM Endereco_Cliente;
 SELECT * FROM ClienteDoEvento;
