@@ -1,0 +1,72 @@
+--
+-- VALORES RETORNADOS PELA CONSULTA REALIZADA NO AMBIENTE Oracle SQL Developer
+--
+
+> -- Essa consulta retorna o nome, a data e o horário do evento (a partir das tabelas EVENTO e EVENTO_LOCALIZAÇÃOdoEvento):
+
+> SELECT EV.Nome_Evento, EVL.Data_Evento, EVL.Hora_Evento
+FROM Evento EV INNER JOIN Evento_LocalizacaoDoEvento EVL
+ON (EV.Cod_Evento = EVL.Cod_Evento)
+ORDER BY EV.Nome_Evento ASC
+
+NOME_EVENTO                                        DATA_EVENTO HORA_EVENTO
+-------------------------------------------------- ----------- -----------
+Gorillaz                                           2022/05/18  21h         
+Guns N Roses South American Tour 2022              2022/09/24  20h         
+Marina Lima no Circo Voador                        2022/06/11  22h         
+The Kooks                                          2022/05/20  21h30       
+
+> -- Essa consulta retorna o nome do estabelecimento do evento e a quantidade de ingressos disponíveis (a partir das tabelas MAPA_LUGARES e SETOR):
+
+> SELECT ML.Nome_Estabelecimento, SUM(S.Qtd_Ingressos) AS Total_Ingressos
+FROM Mapa_Lugares ML INNER JOIN Setor S
+ON (ML.Cod_Mapa_Lugares = S.Cod_Mapa_Lugares)
+GROUP BY ML.Nome_Estabelecimento
+ORDER BY Total_Ingressos DESC
+
+NOME_ESTABELECIMENTO                     TOTAL_INGRESSOS
+---------------------------------------- ---------------
+Allianz Parque                                     40000 
+Pedreira Paulo Leminski                            25000 
+Espaço das Américas                                 2750 
+Circo Voador                                        2200 
+
+> -- Essa consulta retorna o nome do evento, a sua descrição, o CEP do estabelecimento e os valores de data e hora do evento: (a partir das tabelas EVENTO e EVENTO_LOCALIZAÇÃOdoEvento):
+
+> SELECT EV.Nome_Evento AS "Nome do Evento", EV.Descricao_Evento AS "Descrição do Evento", EL.CEP_Evento AS "CEP do Evento", EL.Data_Evento AS "Data do Evento", EL.Hora_Evento AS "Hora do Evento"
+FROM Evento EV
+RIGHT JOIN Evento_LocalizacaoDoEvento EL
+ON (EV.Cod_Evento = EL.Cod_Evento)
+
+Nome do Evento                                     Descrição do Evento              CEP do Evento Data do Evento Hora do Evento
+-------------------------------------------------- -------------------------------- ------------- -------------- --------------
+Guns N Roses South American Tour 2022              Será a 10ª vez que a banda...    05001-200     2022/09/24     20h            
+The Kooks                                          Classificação etára...           01156-000     2022/05/20     21h30          
+Gorillaz                                           A Pedreira nunca mais será...    82130-010     2022/05/18     21h            
+Marina Lima no Circo Voador                        Aquela dobradinha clássica...    20230-060     2022/06/11     22h            
+
+> -- Essa consulta retorna o nome do estabelecimento, os setores desse local e as características de cada ingresso por setor (a partir das tabelas MAPA_LUGARES, SETOR e TIPOdoINGRESSO):
+
+> SELECT ML.Nome_Estabelecimento, S.Nome_Setor, TI.Categoria AS Categoria_Ingresso, TI.Valor_Ingresso, TI.Valor_Taxa_Servico
+FROM Mapa_Lugares ML INNER JOIN Setor S
+ON (ML.Cod_Mapa_Lugares = S.Cod_Mapa_Lugares)
+INNER JOIN TipoDoIngresso TI
+ON (S.Cod_Setor = TI.Cod_Setor)
+
+NOME_ESTABELECIMENTO                     NOME_SETOR                     CATEGORIA_INGRESSO  VALOR_INGRESSO VALOR_TAXA_SERVICO
+---------------------------------------- ------------------------------ ------------------- -------------- ------------------
+Allianz Parque                           Pista Premium                  Inteira                        950                190 
+Allianz Parque                           Pista Premium                  Meia Entrada                   475                 95 
+Allianz Parque                           Pista Premium                  Meia Idoso                     475                 95 
+Allianz Parque                           Pista Premium                  Meia PCD                       475                 95 
+Allianz Parque                           Pista                          Inteira                        600                100 
+Allianz Parque                           Pista                          Meia Entrada                   225                 40 
+Allianz Parque                           Pista                          Meia Idoso                     225                 40 
+Allianz Parque                           Pista                          Meia PCD                       225                 40 
+Espaço das Américas                      Mezanino                       Inteira                        180                100 
+Espaço das Américas                      Mezanino                       Meia Entrada                    90                 50 
+Espaço das Américas                      Cadeirante Pista Premium       Meia PCD                        90                 50 
+
+ 11 linhas selecionadas 
+
+> spool off
