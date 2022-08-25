@@ -1,0 +1,110 @@
+--
+-- SCRIPT DE CRIAÇÃO DO BANCO:
+--
+
+--drop table "ENDERECO_CLIENTE" cascade constraints;
+--drop table "CLIENTEDOEVENTO" cascade constraints;
+--drop table "VENDEDORDOEVENTO" cascade constraints;
+--drop table "LOCALIZACAODOEVENTO" cascade constraints;
+--drop table "EVENTO" cascade constraints;
+--drop table "EVENTO_LOCALIZACAODOEVENTO" cascade constraints;
+--drop table "MAPA_LUGARES" cascade constraints;
+--drop table "SETOR" cascade constraints;
+--drop table "TIPODOINGRESSO" cascade constraints;
+
+-- CRIAÇÃO DAS TABELAS:
+
+CREATE TABLE Endereco_Cliente (
+    CEP_Cliente CHAR (9) NOT NULL, 
+    Logradouro_Cliente VARCHAR (50) NOT NULL,  
+    Num_Cliente INT, 
+    Bairro_Cliente VARCHAR (30) NOT NULL, 
+    Cidade_Cliente VARCHAR (30) NOT NULL, 
+    UF_Cliente CHAR (2) NOT NULL, 
+    PRIMARY KEY (CEP_Cliente) 
+);
+
+CREATE TABLE ClienteDoEvento ( 
+    Cod_Cliente INT, 
+    Nome_Cliente VARCHAR (40) NOT NULL, 
+    CPF CHAR (11) NOT NULL, 
+    Data_Nasc CHAR (10) NOT NULL, 
+    Idade INT, 
+    Email VARCHAR (30) NOT NULL, 
+    Celular VARCHAR (20) NOT NULL,
+    Telefone VARCHAR (20) NOT NULL, 
+    CEP_Cliente CHAR (9), 
+    PRIMARY KEY (Cod_Cliente), 
+    FOREIGN KEY (CEP_Cliente) REFERENCES Endereco_Cliente (CEP_Cliente) 
+);
+
+CREATE TABLE VendedorDoEvento (
+    Cod_Vend INT,
+    Nome_Vend VARCHAR (40) NOT NULL,
+    CNPJ CHAR (18) NOT NULL,
+    Email_Vend VARCHAR (30) NOT NULL,
+    Telefone_Vend VARCHAR (20) NOT NULL,
+    PRIMARY KEY (Cod_Vend)
+);
+
+CREATE TABLE LocalizacaoDoEvento (
+    Nome_Estabelecimento VARCHAR (40) NOT NULL,
+    CEP_Evento CHAR (9) NOT NULL,
+    Logradouro_Evento VARCHAR (50) NOT NULL,  
+    Num_Evento INT, 
+    Bairro_Evento VARCHAR (30) NOT NULL, 
+    Cidade_Evento VARCHAR (30) NOT NULL, 
+    UF_Evento CHAR (2) NOT NULL,
+    Cod_Mapa_Lugares INT,
+    PRIMARY KEY (Nome_Estabelecimento) --PRIMARY KEY (Nome_Estabelecimento, CEP_Evento, Cod_Mapa_Lugares)
+);
+
+CREATE TABLE Evento (
+    Cod_Evento INT,
+    Nome_Evento VARCHAR (50) NOT NULL,
+    Descricao_Evento VARCHAR (4000) NOT NULL,
+    Cod_Vend INT,
+    Nome_Estabelecimento VARCHAR (40),
+    PRIMARY KEY (Cod_Evento),
+    FOREIGN KEY (Cod_Vend) REFERENCES VendedorDoEvento (Cod_Vend),
+    FOREIGN KEY (Nome_Estabelecimento) REFERENCES LocalizacaoDoEvento (Nome_Estabelecimento)
+);
+
+CREATE TABLE Evento_LocalizacaoDoEvento (
+    Cod_Evento INT,
+    Nome_Evento VARCHAR (50) NOT NULL,
+    Nome_Estabelecimento VARCHAR (40),
+    CEP_Evento CHAR (9) NOT NULL,
+    Data_Evento CHAR (10) NOT NULL,
+    Hora_Evento VARCHAR (5) NOT NULL,
+    PRIMARY KEY (Cod_Evento, CEP_Evento),
+    FOREIGN KEY (Cod_Evento) REFERENCES Evento (Cod_Evento),
+    FOREIGN KEY (Nome_Estabelecimento) REFERENCES LocalizacaoDoEvento (Nome_Estabelecimento)
+);
+
+CREATE TABLE Mapa_Lugares (
+    Cod_Mapa_Lugares INT,
+    Nome_Estabelecimento VARCHAR (40),
+    PRIMARY KEY (Cod_Mapa_Lugares),
+    FOREIGN KEY (Nome_Estabelecimento) REFERENCES LocalizacaoDoEvento (Nome_Estabelecimento)
+);
+
+CREATE TABLE Setor (
+    Cod_Setor INT,
+    Nome_Setor VARCHAR (30) NOT NULL,
+    Qtd_Ingressos INT,
+    Cod_Mapa_Lugares INT,
+    PRIMARY KEY (Cod_Setor),
+    FOREIGN KEY (Cod_Mapa_Lugares) REFERENCES Mapa_Lugares (Cod_Mapa_Lugares)
+);
+
+CREATE TABLE TipoDoIngresso (
+    Cod_Tipo_Ingresso INT,
+    Categoria VARCHAR (15) NOT NULL,
+    Qtd_Tipo_Ingresso INT,
+    Valor_Ingresso FLOAT,
+    Valor_Taxa_Servico FLOAT,
+    Cod_Setor INT,
+    PRIMARY KEY (Cod_Tipo_Ingresso),
+    FOREIGN KEY (Cod_Setor) REFERENCES Setor (Cod_Setor)            
+);
